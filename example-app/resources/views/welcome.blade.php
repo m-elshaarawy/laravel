@@ -137,10 +137,5 @@
                 </div>
             </div>
         </div>
-        <form action="/users" method="post">
-            @csrf
-            <input type="text" name="user_name" >
-            <button type="submit">submit</button>
-        </form>
     </body>
 </html>

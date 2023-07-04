@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome2');//welcome
 });
 
-Route::post('users', function(Request $request){
-    return $request; //view('users');
+// Route::post('users', function(Request $request){
+//     return $request; //view('users');
+// });
+
+Route::get('users/{name}',function(string $xd){
+    return $xd;
 });
