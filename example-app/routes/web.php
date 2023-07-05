@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome2');//welcome
+    return view('welcome');//welcome2
 });
 
 // Route::post('users', function(Request $request){
@@ -24,6 +24,9 @@ Route::get('/', function () {
 // });
 
 Route::get('users',function(){
-    $name ='mohamed';
-    return view('users',compact('name'));
+    //$name ='mohamed';
+    return view('users');//compact('name'),,["name"=> "mohamed"]
+});
+Route::get('posts',function(){
+    return view('posts');
 });
