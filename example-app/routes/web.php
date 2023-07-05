@@ -23,6 +23,7 @@ Route::get('/', function () {
 //     return $request; //view('users');
 // });
 
-Route::get('users/{name}',function(string $xd){
-    return $xd;
+Route::get('users',function(){
+    $name ='mohamed';
+    return view('users',compact('name'));
 });
