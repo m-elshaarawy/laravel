@@ -32,4 +32,13 @@ Route::get('users',function(){
 //     return view('posts');
 // });
 
-Route::get('posts',[PostController::class,'index']);
+
+Route::controller(PostController::class)->group(function(){
+
+    Route::get('posts','index');
+    Route::get('posts/create','createPost');
+
+});
+
+// Route::get('posts',[PostController::class,'index']);
+// Route::get('posts/create',[PostController::class,'createPost']);
