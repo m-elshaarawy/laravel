@@ -45,4 +45,9 @@ Route::controller(PostController::class)->group(function(){
 // Route::get('posts',[PostController::class,'index']);
 // Route::get('posts/create',[PostController::class,'createPost']);
 #--------------------------------------------------------------------
-Route::resource('users',UserController::class);
+// Route::resource('users',UserController::class)->except([
+//     'create','show'
+// ]);
+Route::resource('users',UserController::class)->only([
+    'index','update','show'
+]);
