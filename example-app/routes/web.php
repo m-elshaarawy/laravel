@@ -1,7 +1,8 @@
 <?php
 
-#use GuzzleHttp\Psr7\Request;
-use Illuminate\Http\Request;
+use App\Http\Controllers\PostController;
+use GuzzleHttp\Psr7\Request;
+#use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,8 @@ Route::get('users',function(){
     //$name ='mohamed';
     return view('users');//compact('name'),,["name"=> "mohamed"]
 });
-Route::get('posts',function(){
-    return view('posts');
-});
+// Route::get('posts',function(){
+//     return view('posts');
+// });
+
+Route::get('posts',[PostController::class,'index']);
