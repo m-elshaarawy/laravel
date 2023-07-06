@@ -38,8 +38,11 @@ Route::get('/', function () {
 #------------------------------------------------------------------
 Route::controller(PostController::class)->group(function(){
 
-    Route::get('posts','index');
-    Route::get('posts/create','createPost');
+    Route::get('post','index');
+    Route::get('post/create','createPost');
+    Route::post('post/insert','store')->name('post.insert');
+    
+
 
 });
 

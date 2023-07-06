@@ -1,8 +1,8 @@
 <h1> Create New Post</h1>
 
-<form action="" method="get">
-
-Title : <input type="text" name="title" placeholder="Enter Title">
+<form action="{{ route('post.insert')}}" method="post">
+@csrf
+Title : <input type="text" name="title" maxlength="10" placeholder="Enter Title">
 <br><br>
 Body  : <input type="text" name="body" placeholder="Enter Body">
 <br><br>
