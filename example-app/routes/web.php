@@ -36,12 +36,15 @@ Route::get('/', function () {
 // });
 
 #------------------------------------------------------------------
-Route::get('post/edit/{id}',[PostController::class,'edit'])->name('post.edit');
+//Route::get('post/edit/{id}',[PostController::class,'edit'])->name('post.edit');
 Route::controller(PostController::class)->group(function(){
 
-    Route::get('posts','index');
+    Route::get('posts','index')->name('posts');
     Route::get('post/create','createPost');
     Route::post('post/insert','store')->name('post.insert');
+    Route::get('post/edit/{id}','edit')->name('post.edit');
+    Route::put('post/update/{id}','update')->name('post.update');
+    Route::get('post/delete/{id}','destroy')->name('post.delete');
     
 
 

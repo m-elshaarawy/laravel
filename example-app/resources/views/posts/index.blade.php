@@ -13,6 +13,7 @@
             <th> # </th>
             <th> Title </th>  
             <th> Body </th>
+            <th> Pro </th>
         </tr>  
    @foreach ($data as $item)
     <tr> 
@@ -21,7 +22,7 @@
         <td> {{$item->body}} </td>
         <td> 
             <a href="{{ route('post.edit',$item->id) }}" class="btn btn-primary" role="button">Edit</a>
-            <a href="#" class="btn btn-danger" role="button">Delete</a> 
+            <a href="{{ route('post.delete',$item->id) }}" class="btn btn-danger" role="button">Delete</a> 
         </td>     
     </tr>  
    @endforeach

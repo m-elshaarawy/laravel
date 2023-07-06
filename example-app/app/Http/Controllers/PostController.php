@@ -23,12 +23,28 @@ class PostController extends Controller
         return view('posts.edit',compact('edata'));
     }
 
+    public function update(Request $request, string $id)
+    {
+        $udata = DB::table('posts')->where('id',$id)->update([
+            'title'=>$request->title,
+            'body'=>$request->body
+        ]);
+        //return response('Done');
+        return redirect()->route('posts');
+    }
+
+    public function destroy(string $id)
+    {
+        DB::table('posts')->where('id',$id)->delete();
+        return redirect()->route('posts');
+    }
+
     public function store(Request $request)
     {
         DB::table('posts')->insert([
             'title'=>$request->title,
             'body'=>$request->body
         ]);
-        return response('Done');
+        return redirect()->route('posts');
     }
 }
