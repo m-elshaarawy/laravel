@@ -38,7 +38,7 @@ Route::get('/', function () {
 #------------------------------------------------------------------
 Route::controller(PostController::class)->group(function(){
 
-    Route::get('post','index');
+    Route::get('posts','index');
     Route::get('post/create','createPost');
     Route::post('post/insert','store')->name('post.insert');
     
@@ -56,4 +56,4 @@ Route::resource('users',UserController::class)->only([
     'index','update','show'
 ]);
                       /**[UserProfileController::class,''] */
-Route::get('user_profile',UserProfileController::class);
+// Route::get('user_profile',UserProfileController::class);

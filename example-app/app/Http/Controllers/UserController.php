@@ -7,17 +7,17 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 
-    public function __construct() {#Type $var = null
-        // $this->var = $var;
-        $this->middleware('auth');
-    }
+    // public function __construct() {#Type $var = null
+    //     // $this->var = $var;
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return "users index";
+        return view('users');
     }
 
     /**

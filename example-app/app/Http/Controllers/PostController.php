@@ -9,7 +9,8 @@ class PostController extends Controller
 {
     //
     public function index(){
-        return view('posts');
+        $data = DB::table('posts')->get();
+        return view('posts.index',compact('data'));
     }
     public function createPost(){
         return view('posts.create');
