@@ -36,6 +36,7 @@ Route::get('/', function () {
 // });
 
 #------------------------------------------------------------------
+Route::get('post/edit/{id}',[PostController::class,'edit'])->name('post.edit');
 Route::controller(PostController::class)->group(function(){
 
     Route::get('posts','index');

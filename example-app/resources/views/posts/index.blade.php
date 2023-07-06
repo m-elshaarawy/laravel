@@ -18,7 +18,11 @@
     <tr> 
         <th> {{$item->id  }} </th> 
         <td> {{$item->title  }} </td>  
-        <td> {{$item->body}} </td>  
+        <td> {{$item->body}} </td>
+        <td> 
+            <a href="{{ route('post.edit',$item->id) }}" class="btn btn-primary" role="button">Edit</a>
+            <a href="#" class="btn btn-danger" role="button">Delete</a> 
+        </td>     
     </tr>  
    @endforeach
    </table>

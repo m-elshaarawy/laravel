@@ -12,9 +12,17 @@ class PostController extends Controller
         $data = DB::table('posts')->get();
         return view('posts.index',compact('data'));
     }
+
     public function createPost(){
         return view('posts.create');
     }
+
+    public function edit(string $id)
+    {
+        $edata = DB::table('posts')->where('id',$id)->first();
+        return view('posts.edit',compact('edata'));
+    }
+
     public function store(Request $request)
     {
         DB::table('posts')->insert([
