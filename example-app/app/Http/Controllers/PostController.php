@@ -39,6 +39,18 @@ class PostController extends Controller
         return redirect()->route('posts');
     }
 
+    public function destroyAll()
+    {
+        DB::table('posts')->delete();
+        return redirect()->route('posts');
+    }
+
+    public function destroyAllTruncate()
+    {
+        DB::table('posts')->truncate();
+        return redirect()->route('posts');
+    }
+
     public function store(Request $request)
     {
         DB::table('posts')->insert([

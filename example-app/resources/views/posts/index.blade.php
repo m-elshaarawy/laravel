@@ -8,12 +8,17 @@
     <title>_All Posts_</title>
 </head>
 <body>
+
     <table  class="table">
         <tr>  
             <th> # </th>
             <th> Title </th>  
             <th> Body </th>
-            <th> Pro </th>
+            <th>
+                <a href="{{ route('posts.delete.all.truncate') }}" class="btn btn-warning" role="button">Truncate</a> 
+                <a href="{{ route('posts.delete.all') }}" class="btn btn-danger" role="button">Delete All</a>
+      
+            </th>
         </tr>  
    @foreach ($data as $item)
     <tr> 
