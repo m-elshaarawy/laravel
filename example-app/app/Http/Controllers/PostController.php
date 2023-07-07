@@ -47,9 +47,10 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show()//Post $post
     {
-        //
+        $data = Post::onlyTrashed()->get();
+        return view('posts.softdelete',compact('data'));
     }
 
     /**
@@ -86,5 +87,10 @@ class PostController extends Controller
         //Post::findorFail($id)->delete();
         Post::destroy($id);
         return redirect()->route('posts.index');
+    }
+
+    public function restore($id){
+        Post::onlyTrashed()->where('id',$id)->restore();
+        return redirect()->back();
     }
 }
