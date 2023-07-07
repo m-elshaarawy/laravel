@@ -31,10 +31,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // $data = new Post();  # first method
-        // $data->title = $request->title;
-        // $data->body  = $request->body ;
-        // $data->save();
+
+        $request->validate([
+            'title'=>'required|max:20',
+            'body' =>'required'
+        ]);
+     /*
+        $data = new Post();  # first method
+        $data->title = $request->title;
+        $data->body  = $request->body ;
+        $data->save();
+     */
         # second method 
         Post::create([         // can use #request->all() with no []  
             'title'=>$request->title,
