@@ -11,12 +11,12 @@
 @endif --}}
 <form action="{{ route('posts.store')}}" method="post">
 @csrf
-Title : <input type="text" class="@error('title') is-invalid @enderror" name="title" required maxlength="20" placeholder="Enter Title">
+Title : <input type="text" class="@error('title') is-invalid @enderror" name="title" value="{{old('title')}}" required maxlength="20" placeholder="Enter Title">
 <br><br>
 @error('title')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
-Body  : <input type="text" class="@error('body') is-invalid @enderror"name="body" required placeholder="Enter Body">
+Body  : <input type="text" class="@error('body') is-invalid @enderror"name="body" value="{{old('body')}}" required placeholder="Enter Body">
 <br><br>
 @error('body')
     <div class="alert alert-danger">{{ $message }}</div>

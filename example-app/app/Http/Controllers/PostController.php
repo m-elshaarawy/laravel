@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\RequestMatcher\PortRequestMatcher;
@@ -29,13 +30,13 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
 
-        $request->validate([
-            'title'=>'required|max:20',
-            'body' =>'required'
-        ]);
+        // $request->validate([
+        //     'title'=>'required|max:20',
+        //     'body' =>'required'
+        // ]);
      /*
         $data = new Post();  # first method
         $data->title = $request->title;
