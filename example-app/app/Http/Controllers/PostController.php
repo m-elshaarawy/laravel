@@ -2,61 +2,64 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
-    //
-    public function index(){
-        $data = DB::table('posts')->get();
-        return view('posts.index',compact('data'));
-    }
-
-    public function createPost(){
-        return view('posts.create');
-    }
-
-    public function edit(string $id)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        $edata = DB::table('posts')->where('id',$id)->first();
-        return view('posts.edit',compact('edata'));
+        //
     }
 
-    public function update(Request $request, string $id)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        $udata = DB::table('posts')->where('id',$id)->update([
-            'title'=>$request->title,
-            'body'=>$request->body
-        ]);
-        //return response('Done');
-        return redirect()->route('posts');
+        //
     }
 
-    public function destroy(string $id)
-    {
-        DB::table('posts')->where('id',$id)->delete();
-        return redirect()->route('posts');
-    }
-
-    public function destroyAll()
-    {
-        DB::table('posts')->delete();
-        return redirect()->route('posts');
-    }
-
-    public function destroyAllTruncate()
-    {
-        DB::table('posts')->truncate();
-        return redirect()->route('posts');
-    }
-
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        DB::table('posts')->insert([
-            'title'=>$request->title,
-            'body'=>$request->body
-        ]);
-        return redirect()->route('posts');
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Post $post)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Post $post)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Post $post)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Post $post)
+    {
+        //
     }
 }
