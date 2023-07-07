@@ -31,7 +31,7 @@
                 <a href="{{ route('posts.edit',$item->id) }}" class="btn btn-primary" role="button">Edit</a>
                 @method('DELETE')
                 @csrf
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger">SoftDelete</button>
             </form>
             {{-- <a href="{{ route('posts.destroy',$item->id) }}" class="btn btn-danger" role="button">Delete</a>  --}}
         </td>     

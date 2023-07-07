@@ -67,3 +67,5 @@ Route::resource('users',UserController::class)->only([
 /** working with models  */
 Route::resource('posts',PostController::class);//->except(['show']);
 Route::get('posts/restore/{id}',[PostController::class,'restore'])->name('post.restore');
+Route::get('posts/forceDelete/{id}',[PostController::class,'forceDelete'])->name('post.delete');
+

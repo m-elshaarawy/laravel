@@ -27,7 +27,7 @@
         <td> {{$item->body}} </td>
         <td> 
             
-            <form action="{{ route('posts.destroy', $item->id ) }}" method="post">
+            <form action="{{ route('post.delete', $item->id ) }}" method="get">
                 <a href="{{ route('post.restore',$item->id) }}" class="btn btn-primary" role="button">Restore</a>
                 @method('DELETE')
                 @csrf

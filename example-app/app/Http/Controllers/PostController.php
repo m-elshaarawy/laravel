@@ -93,4 +93,9 @@ class PostController extends Controller
         Post::onlyTrashed()->where('id',$id)->restore();
         return redirect()->back();
     }
+
+    public function forceDelete($id){
+        Post::onlyTrashed()->where('id',$id)->forceDelete();
+        return redirect()->back();
+    }
 }
