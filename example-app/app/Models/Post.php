@@ -10,6 +10,12 @@ class Post extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    
     //protected $fillable =['title','body'];
     protected $guarded = []; # can add any column inside [''] for exception
+
+    // public function scopePopular( $query): void
+    // {
+    //     $query->where('votes', '>', 100);
+    // }
 }
