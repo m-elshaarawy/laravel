@@ -37,6 +37,7 @@ Route::get('/', function () {
 
 #------------------------------------------------------------------
 //Route::get('post/edit/{id}',[PostController::class,'edit'])->name('post.edit');
+/*
 Route::controller(PostController::class)->group(function(){
 
     Route::get('posts','index')->name('posts');
@@ -49,7 +50,7 @@ Route::controller(PostController::class)->group(function(){
     Route::get('posts/delete/all/truncate','destroyAllTruncate')->name('posts.delete.all.truncate');
 
 
-});
+});*/
 
 // Route::get('posts',[PostController::class,'index']);
 // Route::get('posts/create',[PostController::class,'createPost']);
@@ -62,3 +63,6 @@ Route::resource('users',UserController::class)->only([
 ]);
                       /**[UserProfileController::class,''] */
 // Route::get('user_profile',UserProfileController::class);
+
+/** working with models  */
+Route::resource('posts',PostController::class)->except(['show']);
