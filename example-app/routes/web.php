@@ -65,4 +65,4 @@ Route::resource('users',UserController::class)->only([
 // Route::get('user_profile',UserProfileController::class);
 
 /** working with models  */
-Route::resource('posts',PostController::class)->except(['show']);
+Route::resource('posts',PostController::class);//->except(['show']);

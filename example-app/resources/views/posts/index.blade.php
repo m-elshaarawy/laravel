@@ -14,11 +14,11 @@
             <th> # </th>
             <th> Title </th>  
             <th> Body </th>
-            <th>
+            {{-- <th>
                 <a href="{{ route('posts.delete.all.truncate') }}" class="btn btn-warning" role="button">Truncate</a> 
                 <a href="{{ route('posts.delete.all') }}" class="btn btn-danger" role="button">Delete All</a>
       
-            </th>
+            </th> --}}
         </tr>  
    @foreach ($data as $item)
     <tr> 
@@ -26,8 +26,14 @@
         <td> {{$item->title  }} </td>  
         <td> {{$item->body}} </td>
         <td> 
-            <a href="{{ route('post.edit',$item->id) }}" class="btn btn-primary" role="button">Edit</a>
-            <a href="{{ route('post.delete',$item->id) }}" class="btn btn-danger" role="button">Delete</a> 
+            
+            <form action="{{ route('posts.destroy', $item->id ) }}" method="post">
+                <a href="{{ route('posts.edit',$item->id) }}" class="btn btn-primary" role="button">Edit</a>
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            {{-- <a href="{{ route('posts.destroy',$item->id) }}" class="btn btn-danger" role="button">Delete</a>  --}}
         </td>     
     </tr>  
    @endforeach
