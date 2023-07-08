@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Phone;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -18,8 +19,8 @@ class UserController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {    //User::find(2)->phone
-        return Phone::find(2)->user;
+    {    //User::find(2)->phone ,Phone::find(2)->user
+        return Role::find(2)->users;
     }
 
     /**
