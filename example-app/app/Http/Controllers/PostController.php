@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\RequestMatcher\PortRequestMatcher;
@@ -16,7 +17,8 @@ class PostController extends Controller
     {
         $data = Post::all();
         //$data = Post::get();
-        return view('posts.index',compact('data'));
+       // return view('posts.index',compact('data'));
+       return Comment::find(1)->post;
     }
 
     /**
