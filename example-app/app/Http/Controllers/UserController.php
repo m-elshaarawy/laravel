@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Phone;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -16,8 +18,8 @@ class UserController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('users');
+    {    //User::find(2)->phone
+        return Phone::find(2)->user;
     }
 
     /**

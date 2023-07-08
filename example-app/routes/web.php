@@ -58,9 +58,7 @@ Route::controller(PostController::class)->group(function(){
 // Route::resource('users',UserController::class)->except([
 //     'create','show'
 // ]);
-Route::resource('users',UserController::class)->only([
-    'index','update','show'
-]);
+Route::resource('users',UserController::class);
                       /**[UserProfileController::class,''] */
 // Route::get('user_profile',UserProfileController::class);
 
