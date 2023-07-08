@@ -18,9 +18,11 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {    //User::find(2)->phone ,Phone::find(2)->user
-        return Role::find(2)->users;
+       // Role::find(2)->users;
+       $user = User::find($id);
+       return $user->name;
     }
 
     /**

@@ -58,7 +58,8 @@ Route::controller(PostController::class)->group(function(){
 // Route::resource('users',UserController::class)->except([
 //     'create','show'
 // ]);
-Route::resource('users',UserController::class);
+//Route::resource('users',UserController::class);
+Route::get('user/{id}',[UserController::class,'index']);
                       /**[UserProfileController::class,''] */
 // Route::get('user_profile',UserProfileController::class);
 
