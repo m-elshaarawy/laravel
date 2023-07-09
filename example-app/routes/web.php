@@ -4,6 +4,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Auth;
 #use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -59,12 +60,16 @@ Route::controller(PostController::class)->group(function(){
 //     'create','show'
 // ]);
 //Route::resource('users',UserController::class);
-Route::get('user/{id}',[UserController::class,'index']);
-                      /**[UserProfileController::class,''] */
-// Route::get('user_profile',UserProfileController::class);
+// Route::get('user/{id}',[UserController::class,'index']);
+//                       /**[UserProfileController::class,''] */
+// // Route::get('user_profile',UserProfileController::class);
 
-/** working with models  */
-Route::resource('posts',PostController::class);//->except(['show']);
-Route::get('posts/restore/{id}',[PostController::class,'restore'])->name('post.restore');
-Route::get('posts/forceDelete/{id}',[PostController::class,'forceDelete'])->name('post.delete');
+// /** working with models  */
+// Route::resource('posts',PostController::class);//->except(['show']);
+// Route::get('posts/restore/{id}',[PostController::class,'restore'])->name('post.restore');
+// Route::get('posts/forceDelete/{id}',[PostController::class,'forceDelete'])->name('post.delete');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
