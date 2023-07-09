@@ -1,11 +1,6 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\UserProfileController;
-use GuzzleHttp\Psr7\Request;
-use Illuminate\Support\Facades\Auth;
-#use Illuminate\Http\Request;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,56 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');//welcome2
+    return view('welcome');
 });
 
-// Route::post('users', function(Request $request){
-//     return $request; //view('users');
-// });
-#------------------------------------------------------------------
-// Route::get('users',function(){
-//     //$name ='mohamed';
-//     return view('users');//compact('name'),,["name"=> "mohamed"]
-// });
-#------------------------------------------------------------------
-// Route::get('posts',function(){
-//     return view('posts');
-// });
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-#------------------------------------------------------------------
-//Route::get('post/edit/{id}',[PostController::class,'edit'])->name('post.edit');
-/*
-Route::controller(PostController::class)->group(function(){
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-    Route::get('posts','index')->name('posts');
-    Route::get('post/create','createPost');
-    Route::post('post/insert','store')->name('post.insert');
-    Route::get('post/edit/{id}','edit')->name('post.edit');
-    Route::put('post/update/{id}','update')->name('post.update');
-    Route::get('post/delete/{id}','destroy')->name('post.delete');
-    Route::get('posts/delete/all','destroyAll')->name('posts.delete.all');
-    Route::get('posts/delete/all/truncate','destroyAllTruncate')->name('posts.delete.all.truncate');
-
-
-});*/
-
-// Route::get('posts',[PostController::class,'index']);
-// Route::get('posts/create',[PostController::class,'createPost']);
-#--------------------------------------------------------------------
-// Route::resource('users',UserController::class)->except([
-//     'create','show'
-// ]);
-//Route::resource('users',UserController::class);
-// Route::get('user/{id}',[UserController::class,'index']);
-//                       /**[UserProfileController::class,''] */
-// // Route::get('user_profile',UserProfileController::class);
-
-// /** working with models  */
-// Route::resource('posts',PostController::class);//->except(['show']);
-// Route::get('posts/restore/{id}',[PostController::class,'restore'])->name('post.restore');
-// Route::get('posts/forceDelete/{id}',[PostController::class,'forceDelete'])->name('post.delete');
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+require __DIR__.'/auth.php';
