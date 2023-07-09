@@ -70,7 +70,8 @@ class User extends Authenticatable
     protected function Name(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => ucfirst($value),
+            get: fn (string $value) => ucfirst($value), // accessor
+            set: fn (string $value) => strtolower($value), //mutator
         );
     }
 }
