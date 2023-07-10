@@ -13,12 +13,13 @@ class TestMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $user;
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
+        $this->user=$user;
     }
 
     /**
@@ -38,6 +39,10 @@ class TestMail extends Mailable
     {
         return new Content(
             markdown: 'emails.test2',
+            with: [
+                'user'=>$this->user,
+            ],
+            
         );
     }
 
