@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +36,12 @@ Route::middleware(['ceck_user'])->group(function () {
     
     Route::get('posts',[PostController::class,'index']);
 
+});
+
+Route::get('/send',function(){
+
+    Mail::to('m.elshaarawy96@yahoo.com')->send(new TestMail());
+    return response('done');
 });
 
 require __DIR__.'/auth.php';
