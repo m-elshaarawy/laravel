@@ -38,10 +38,10 @@ Route::middleware(['ceck_user'])->group(function () {
 
 });
 
-Route::get('/send',function(){
+// Route::get('/send',function(){
 
-    Mail::to('m.elshaarawy96@yahoo.com')->send(new TestMail());
-    return response('done');
-});
+//     Mail::to('m.elshaarawy96@yahoo.com')->send(new TestMail());
+//     return response('done');
+// });
 
 require __DIR__.'/auth.php';
