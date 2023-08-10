@@ -38,6 +38,8 @@ Route::middleware(['ceck_user'])->group(function () {
 
 });
 
+Route::resource('posts',PostController::class);
+
 // Route::get('/send',function(){
 
 //     Mail::to('m.elshaarawy96@yahoo.com')->send(new TestMail());
